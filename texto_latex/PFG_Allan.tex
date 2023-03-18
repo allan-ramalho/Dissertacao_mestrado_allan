@@ -1,0 +1,271 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel.
+	sumario=tradicional, % indenta o sumario 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+%\usepackage{lmodern}           % Usa a fonte Latin Modern
+\usepackage{pslatex}            % Usa a fonte Times New Roman 
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx, draftfigure}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{amsfonts}			% para símbolos matemáticos
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definição}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{subfig}
+\usepackage{hyperref}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{lscape}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{placeins}
+%\usepackage[titletoc]{appendix}
+% --- centralizador de tabelas -----
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Análise qualitativa do modelo de gravidade global EIGEN-6C4 na modelagem de distúrbios de gravidade sob a região da Bacia do Parnaíba}
+\orientador{Dr. Kristoffer A.T.Hallam}
+\coorientador{Dr. Rodrigo Bijani}
+\autor{Allan Soares Ramalho}
+\local{Brasil}
+\data{\today}
+\instituicao{Universidade Federal Fluminense - UFF
+  \par
+  Departamento de Geologia e Geofísica
+  \par
+  Graduação em Geofísica}
+\tipotrabalho{Projeto de pesquisa}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Projeto Final de Graduação apresentado ao curso de graduação em Geofísica da Universidade Federal  Fluminense  como  requisito  para  a obtenção  do  grau  de  Bacharel  em  Geofísica.}
+% ---
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{projeto de pesquisa}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+\begin{flushleft}
+	\vspace*{-0.7mm}
+	\setlength\baselineskip{-10mm}
+	\setlength\parskip{-10.mm}
+	\makebox[20mm][c]{\hspace{13.5cm}\includegraphics[width=3cm]{figs/brasaouff}}
+\end{flushleft}
+\vspace{\fill}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% ---
+\imprimirfolhaderosto
+% ---
+
+% folha de aprovação:
+\include{Folha_Aprovacao}
+% ---
+% NOTA DA ABNT NBR 15287:2011, p. 4:
+%  ``Se exigido pela entidade, apresentar os dados curriculares do autor em
+%     folha ou página distinta após a folha de rosto.''
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+%\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+%\listoftables*
+\cleardoublepage
+% ---
+\include{Agradecimentos}
+% ---
+\include{Epigrafe}
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+%\begin{siglas}
+%\item[ABNT] Associação Brasileira de Normas Técnicas
+%\item[abnTeX] ABsurdas Normas para TeX
+%\end{siglas}
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+%\begin{simbolos}
+%\item[$ \Gamma $] Letra grega Gama
+%\item[$ \Lambda $] Lambda
+%\item[$ \zeta $] Letra grega minúscula zeta
+%\item[$ \in $] Pertence
+%\end{simbolos}
+% ---
+\include{Resumo}
+
+\include{Abstract}
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% ---
+\textual
+
+% ----- Inicio do documento -----------:
+% -------------- Lista de figuras: --------------------------------
+\listoffigures	
+\listoftables
+
+% Capitulos:
+
+% ------------------- capitulo 1:
+\include{Introducao}
+
+% ------------------- capitulo 2:
+\include{Teoria}
+
+% ------------------- capitulo 3:
+\include{Metodologia}
+
+% ------------------- capitulo 4:
+\include{Resultados}
+
+% ------------------- capitulo 5:
+\include{Conclusoes}
+
+\bibliography{refs}
+
+% ------------------- capitulo Apêncide:
+%\include{Apendice}
+
+\end{document}
