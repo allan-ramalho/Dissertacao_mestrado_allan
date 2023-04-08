@@ -1,0 +1,21 @@
+1 - Rodar com os dados da Bacia do parnaiba
+1.1 - Rodar para o perfil como parametro de teste de comparação
+
+2 - Contexto do trabalho:
+2.2 -  Comparação dos modelos globais na inferencia de disturbios de gravidade.
+2.3 -  Segmentar ganho de artefato
+2.4 -  Area de estudo na Bacia de Barreirinhas - mapa
+
+3 - Fundamentação teórica (pouca coisa e direto)
+
+3 - Metodo
+3.1 - Mapas
+3.2 - Breve descrição dos MGG's
+
+3 - Perspectivas futuras:
+3.1 - Publicação do trabalho (Journal of Geodesy / Journal of Geodetic Science)
+3.2 - Variar areas de estudo
+
+4 -  Cronograma dentro de 6 meses (25/04 seminario 1 pronto;)
+
+5 - Referencias
